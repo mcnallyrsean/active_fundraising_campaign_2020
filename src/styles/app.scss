@@ -1,0 +1,29 @@
+@import "~typeface-poppins/index.css";
+@import "~typeface-ibm-plex-sans/index.css";
+@import "./colors.scss";
+@import "./DontationCard/DonationCard.scss";
+
+body {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  background-color: $ocean-20;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "IBM Plex Sans";
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Poppins";
+  font-weight: 700;
+}
+
+p {
+  font-size: 1.2rem;
+}
