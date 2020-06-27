@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { differenceInCalendarDays } from "date-fns";
+import { differenceInCalendarDays, parseISO } from "date-fns";
 import converter from "number-to-words";
 
 export default function DonationCardText({
@@ -8,7 +8,7 @@ export default function DonationCardText({
   goalReached,
 }) {
   const [daysRemaining] = useState(
-    differenceInCalendarDays(endDate, new Date())
+    differenceInCalendarDays(parseISO(endDate), new Date())
   );
 
   return (
@@ -16,7 +16,11 @@ export default function DonationCardText({
       {goalReached && <h1>Goal reached!</h1>}
       {!goalReached && (
         <h1 style={{ margin: "0" }}>
-          Only {converter.toWords(daysRemaining)} day
+          Only{" "}
+          {daysRemaining < 21
+            ? `${converter.toWords(daysRemaining)} `
+            : `${daysRemaining} `}
+          day
           {daysRemaining > 1 ? "s" : ""} left to fund this project.
         </h1>
       )}

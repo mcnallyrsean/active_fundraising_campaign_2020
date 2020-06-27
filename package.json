@@ -22,7 +22,8 @@
     "react-number-format": "^4.4.1",
     "react-router-dom": "^5.2.0",
     "typeface-ibm-plex-sans": "0.0.75",
-    "typeface-poppins": "0.0.72"
+    "typeface-poppins": "0.0.72",
+    "use-persisted-state": "^0.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.10.3",

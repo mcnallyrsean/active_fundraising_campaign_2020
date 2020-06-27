@@ -12,7 +12,6 @@ export default function Admin({
   minimumDonation,
   setMinimumDonation,
 }) {
-  console.log(endDate);
   const [potentialGoal, setPotentialGoal] = useState(0);
   const [potentialMinimum, setPotentialMinimum] = useState(0);
   const [potentialEndDate, setPotentialEndDate] = useState(parseISO(endDate));
@@ -22,9 +21,11 @@ export default function Admin({
   };
 
   const handleSubmit = () => {
-    setGoal(potentialGoal);
-    setMinimumDonation(potentialMinimum);
-    setEndDate(parseISO(potentialEndDate));
+    if (potentialGoal && potentialMinimum && potentialEndDate) {
+      setGoal(potentialGoal);
+      setMinimumDonation(potentialMinimum);
+      setEndDate(potentialEndDate);
+    }
   };
 
   return (
