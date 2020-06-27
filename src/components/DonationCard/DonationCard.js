@@ -4,25 +4,19 @@ import ProgressBar from "./ProgressBar";
 import DonationCardText from "./DonationCardText";
 import Form from "./Form";
 
-export default function DonationCard({ goal, endDate }) {
-  const [goalReached, setGoalReached] = useState(false);
-  const [donationsTotal, setDonationsTotal] = useState(0);
-  const [amountToGoal, setAmountToGoal] = useState(goal - donationsTotal);
-  const [totalDonors, setTotalDonors] = useState(0);
-
+export default function DonationCard({
+  goal,
+  endDate,
+  goalReached,
+  donationsTotal,
+  amountToGoal,
+  totalDonors,
+  setDonationsTotal,
+  setTotalDonors,
+}) {
   const handleDonation = (amount) => {
     setDonationsTotal(donationsTotal + amount);
   };
-
-  useEffect(() => {
-    setAmountToGoal(goal - donationsTotal);
-  }, [donationsTotal]);
-
-  useEffect(() => {
-    if (amountToGoal <= 0) {
-      setGoalReached(true);
-    }
-  }, [amountToGoal]);
 
   return (
     <div className="card-container">
