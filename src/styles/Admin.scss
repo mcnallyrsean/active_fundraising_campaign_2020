@@ -25,6 +25,9 @@
   border: 0;
   display: flex;
   padding: 5px 0;
+  @media all and (max-width: 990px) {
+    flex-direction: column;
+  }
   input {
     width: 100%;
     padding: 10px 5px;
