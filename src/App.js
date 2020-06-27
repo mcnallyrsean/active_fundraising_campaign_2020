@@ -26,14 +26,14 @@ export default function App() {
   const [totalDonors, setTotalDonors] = useTotalDonorsState(0);
 
   useEffect(() => {
+    console.log(goal);
+    console.log(donationsTotal);
     setAmountToGoal(goal - donationsTotal);
   }, [goal, donationsTotal]);
 
   useEffect(() => {
-    if (amountToGoal <= 0) {
-      setGoalReached(true);
-    }
-  }, [amountToGoal]);
+    amountToGoal <= 0 ? setGoalReached(true) : setGoalReached(false);
+  }, [goal, amountToGoal]);
 
   return (
     <Router>
