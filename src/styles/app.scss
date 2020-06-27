@@ -13,6 +13,9 @@ body {
   justify-content: center;
   align-items: center;
   font-family: "IBM Plex Sans";
+  @media all and (max-width: 990px) {
+    justify-content: flex-start;
+  }
 }
 
 h1,
