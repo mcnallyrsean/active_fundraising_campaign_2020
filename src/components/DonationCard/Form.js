@@ -43,6 +43,7 @@ export default function Form({
           prefix={"$"}
           placeholder={"$"}
           displayType="input"
+          allowNegative={false}
           onValueChange={(value) => handleChange(value)}
           disabled={daysRemaining < 0 ? true : false}
         />

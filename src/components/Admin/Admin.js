@@ -29,7 +29,13 @@ export default function Admin({
   };
 
   const handleSubmit = () => {
-    if (potentialGoal && potentialMinimum && potentialEndDate) {
+    if (
+      potentialGoal &&
+      potentialGoal >= 100 &&
+      potentialMinimum &&
+      potentialMinimum > 1 &&
+      potentialEndDate
+    ) {
       setGoal(potentialGoal);
       setMinimumDonation(potentialMinimum);
       setEndDate(potentialEndDate);
@@ -49,7 +55,7 @@ export default function Admin({
     setPotentialEndDate(addMonths(new Date(), 1));
     setAmountToGoal(5000.0);
     setDonationsTotal(0);
-    alert.success("Campaign updated.");
+    alert.success("Campaign reset to defaults.");
   };
 
   return (
@@ -70,7 +76,9 @@ export default function Admin({
       </h1>
       <div className="admin-cnt">
         <fieldset className="fieldset">
-          <label htmlFor="goal">Campaign Goal($)</label>
+          <label htmlFor="goal">
+            Campaign Goal (Must be greater than $100)
+          </label>
           <NumberFormat
             value={potentialGoal}
             displayType={"text"}
@@ -79,13 +87,16 @@ export default function Admin({
             prefix={"$"}
             placeholder={"$"}
             displayType="input"
+            allowNegative={false}
             onValueChange={(value) =>
               handleMoneyChange(value.floatValue, setPotentialGoal)
             }
           />
         </fieldset>
         <fieldset className="fieldset">
-          <label htmlFor="goal">Campaign Minimum Donation ($)</label>
+          <label htmlFor="goal">
+            Campaign Minimum Donation (Must be greater than $1)
+          </label>
           <NumberFormat
             value={potentialMinimum}
             displayType={"text"}
@@ -94,6 +105,7 @@ export default function Admin({
             prefix={"$"}
             placeholder={"$"}
             displayType="input"
+            allowNegative={false}
             onValueChange={(value) =>
               handleMoneyChange(value.floatValue, setPotentialMinimum)
             }
