@@ -1,7 +1,15 @@
 import React, { useState } from "react";
 import NumberFormat from "react-number-format";
+import { useAlert } from "react-alert";
 
-export default function Form({ handleDonation, totalDonors, setTotalDonors }) {
+export default function Form({
+  handleDonation,
+  totalDonors,
+  setTotalDonors,
+  minimumDonation,
+  daysRemaining,
+}) {
+  const alert = useAlert();
   const [inputAmount, setInputAmount] = useState("");
   const [formattedAmount, setFormattedAmount] = useState("");
 
@@ -11,13 +19,14 @@ export default function Form({ handleDonation, totalDonors, setTotalDonors }) {
   };
 
   const handleSubmit = (value) => {
-    if (value >= 5) {
+    if (value >= minimumDonation) {
       handleDonation(value);
       setTotalDonors(totalDonors + 1);
       setInputAmount("");
       setFormattedAmount("");
+      alert.success("Donation submitted. Thank you!");
     } else {
-      console.log("plz give us more");
+      alert.error(`You must donate at least $${minimumDonation}`);
     }
   };
 
@@ -34,10 +43,15 @@ export default function Form({ handleDonation, totalDonors, setTotalDonors }) {
           placeholder={"$"}
           displayType="input"
           onValueChange={(value) => handleChange(value)}
+          disabled={daysRemaining < 0 ? true : false}
         />
       </label>
 
-      <button type="submit" onClick={() => handleSubmit(inputAmount)}>
+      <button
+        disabled={daysRemaining < 0 ? true : false}
+        type="submit"
+        onClick={() => handleSubmit(inputAmount)}
+      >
         Give Now
       </button>
     </div>

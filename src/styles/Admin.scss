@@ -1,0 +1,40 @@
+.admin {
+  width: 50vw;
+  button {
+    border-radius: $border-radius;
+    flex: 1;
+    padding: 10px 0;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+.admin-cnt {
+  display: flex;
+  flex-direction: column;
+}
+
+.fieldset {
+  border: 0;
+  display: flex;
+  padding: 5px 0;
+  input {
+    width: 100%;
+    padding: 10px 5px;
+  }
+}
+
+.link-to-donation {
+  position: fixed;
+  left: 10%;
+  bottom: 10%;
+}
+.link-to-donation-cnt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rotate-arrow {
+  transform: rotate(180deg);
+}

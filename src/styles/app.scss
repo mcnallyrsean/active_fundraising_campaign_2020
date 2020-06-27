@@ -1,8 +1,8 @@
 @import "~typeface-poppins/index.css";
 @import "~typeface-ibm-plex-sans/index.css";
 @import "./colors.scss";
-@import "./DontationCard/DonationCard.scss";
-@import "./Admin//Admin.scss";
+@import "./DonationCard.scss";
+@import "./Admin.scss";
 
 body {
   height: 100vh;
@@ -27,4 +27,29 @@ h6 {
 
 p {
   font-size: 1.2rem;
+}
+
+button {
+  background-color: $mint;
+  border: 0;
+  border-radius: 0 $border-radius $border-radius 0;
+  color: $white;
+  font-family: "Poppins";
+  font-weight: 700;
+  font-size: 1.3rem;
+  padding: 0px 20px;
+  &:disabled {
+    filter: opacity(0.5);
+  }
+}
+
+.switch-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.switch-wrapper > div {
+  position: absolute;
 }

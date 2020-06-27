@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import NumberFormat from "react-number-format";
+import { useAlert } from "react-alert";
 import { format, parseISO } from "date-fns";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { Link } from "react-router-dom";
+import Arrow from "../Arrow/Arrow";
 
 export default function Admin({
   goal,
@@ -12,12 +15,13 @@ export default function Admin({
   minimumDonation,
   setMinimumDonation,
 }) {
-  const [potentialGoal, setPotentialGoal] = useState(0);
-  const [potentialMinimum, setPotentialMinimum] = useState(0);
-  const [potentialEndDate, setPotentialEndDate] = useState(parseISO(endDate));
+  const alert = useAlert();
+  const [potentialGoal, setPotentialGoal] = useState(goal);
+  const [potentialMinimum, setPotentialMinimum] = useState(minimumDonation);
+  const [potentialEndDate, setPotentialEndDate] = useState(endDate);
 
   const handleMoneyChange = (val, setFormatted) => {
-    setFormatted(val);
+    val ? setFormatted(val) : setFormatted(0);
   };
 
   const handleSubmit = () => {
@@ -25,20 +29,33 @@ export default function Admin({
       setGoal(potentialGoal);
       setMinimumDonation(potentialMinimum);
       setEndDate(potentialEndDate);
+      alert.success("Campaign updated.");
+    } else {
+      alert.error("There was a problem updating this campaign.");
     }
   };
 
   return (
     <div className="admin">
+      <div className="link-to-donation">
+        <Link to="/">
+          <div className="link-to-donation-cnt">
+            <div className="rotate-arrow">
+              <Arrow></Arrow>
+            </div>
+            <span>Back to Donation Page</span>
+          </div>
+        </Link>
+      </div>
       <h1>
         SUPER SECRET ADMIN PAGE THAT WOULD NORMALLY BE HIDDEN BY AUTH AND/OR
         PERMISSIONS
       </h1>
-      <div>
+      <div className="admin-cnt">
         <fieldset className="fieldset">
-          <label htmlFor="goal">Goal($) - Current {goal}</label>
+          <label htmlFor="goal">Campaign Goal($)</label>
           <NumberFormat
-            value={potentialGoal.formattedValue}
+            value={potentialGoal}
             displayType={"text"}
             thousandSeparator={true}
             decimalScale={2}
@@ -51,11 +68,9 @@ export default function Admin({
           />
         </fieldset>
         <fieldset className="fieldset">
-          <label htmlFor="goal">
-            Minimum Donatation ($) - Current {minimumDonation}
-          </label>
+          <label htmlFor="goal">Campaign Minimum Donation ($)</label>
           <NumberFormat
-            value={potentialMinimum.formattedValue}
+            value={potentialMinimum}
             displayType={"text"}
             thousandSeparator={true}
             decimalScale={2}
@@ -68,15 +83,15 @@ export default function Admin({
           />
         </fieldset>
         <fieldset className="fieldset">
-          <label htmlFor="endDate">
-            End Date - Current {format(new Date(endDate), "MM-dd-yyyy")}
-          </label>
+          <label htmlFor="endDate">Campaign End Date</label>
           <DatePicker
-            selected={potentialEndDate}
-            onChange={(val) => setPotentialEndDate(val)}
+            selected={potentialEndDate ? new Date(potentialEndDate) : null}
+            onChange={(val) => setPotentialEndDate(new Date(val))}
           />
         </fieldset>
-        <button onClick={() => handleSubmit()}>Submit</button>
+        <button type="submit" onClick={() => handleSubmit()}>
+          Submit
+        </button>
       </div>
     </div>
   );
