@@ -19,11 +19,17 @@ export default function DonationCardText({
           this project.
         </h1>
       )}
-
-      <p className="donation-card-text">
-        Join the <strong>{totalDonors}</strong> total donors who have already
-        supported this project.
-      </p>
+      {totalDonors > 0 ? (
+        <p className="donation-card-text">
+          Join the <strong>{totalDonors}</strong> total donor
+          {totalDonors > 1 ? "s" : ""} who
+          {totalDonors > 1 ? " have" : " has"} already supported this project.
+        </p>
+      ) : (
+        <p className="donation-card-text">
+          Please consider supporting this project.
+        </p>
+      )}
     </div>
   );
 }
