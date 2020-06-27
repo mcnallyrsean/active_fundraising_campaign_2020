@@ -4,13 +4,11 @@ import ProgressBar from "./ProgressBar";
 import DonationCardText from "./DonationCardText";
 import Form from "./Form";
 
-export default function DonationCard() {
-  const [goal, setGoal] = useState(5000.0);
+export default function DonationCard({ goal, endDate }) {
   const [goalReached, setGoalReached] = useState(false);
   const [donationsTotal, setDonationsTotal] = useState(0);
   const [amountToGoal, setAmountToGoal] = useState(goal - donationsTotal);
   const [totalDonors, setTotalDonors] = useState(0);
-  const [endDate, setEndDate] = useState(new Date(2020, 6, 2, 0, 0));
 
   const handleDonation = (amount) => {
     setDonationsTotal(donationsTotal + amount);

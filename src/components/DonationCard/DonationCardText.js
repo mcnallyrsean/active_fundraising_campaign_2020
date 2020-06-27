@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { differenceInCalendarDays } from "date-fns";
+import converter from "number-to-words";
 
 export default function DonationCardText({
   totalDonors,
@@ -15,8 +16,8 @@ export default function DonationCardText({
       {goalReached && <h1>Goal reached!</h1>}
       {!goalReached && (
         <h1 style={{ margin: "0" }}>
-          Only {daysRemaining} day{daysRemaining > 1 ? "s" : ""} left to fund
-          this project.
+          Only {converter.toWords(daysRemaining)} day
+          {daysRemaining > 1 ? "s" : ""} left to fund this project.
         </h1>
       )}
       {totalDonors > 0 ? (
