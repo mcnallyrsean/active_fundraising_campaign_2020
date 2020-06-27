@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
 export default function ProgressBar({ donationsTotal, goal }) {
   const [progress, setProgress] = useState(0);
@@ -19,3 +20,8 @@ export default function ProgressBar({ donationsTotal, goal }) {
     </div>
   );
 }
+
+ProgressBar.propTypes = {
+  goal: PropTypes.number,
+  donationsTotal: PropTypes.number,
+};

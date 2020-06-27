@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import converter from "number-to-words";
 
 export default function DonationCardText({
@@ -51,3 +52,9 @@ export default function DonationCardText({
     );
   }
 }
+
+DonationCardText.propTypes = {
+  totalDonors: PropTypes.number,
+  goalReached: PropTypes.bool,
+  daysRemaining: PropTypes.number,
+};

@@ -89,6 +89,9 @@ export default function App() {
               setEndDate={setEndDate}
               minimumDonation={minimumDonation}
               setMinimumDonation={setMinimumDonation}
+              setTotalDonors={setTotalDonors}
+              setDonationsTotal={setDonationsTotal}
+              setAmountToGoal={setAmountToGoal}
             />
           </Route>
           <Route path="*">

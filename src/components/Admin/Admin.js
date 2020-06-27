@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import NumberFormat from "react-number-format";
 import { useAlert } from "react-alert";
-import { format, parseISO } from "date-fns";
+import { addMonths } from "date-fns";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Link } from "react-router-dom";
@@ -14,6 +15,9 @@ export default function Admin({
   setEndDate,
   minimumDonation,
   setMinimumDonation,
+  setTotalDonors,
+  setDonationsTotal,
+  setAmountToGoal,
 }) {
   const alert = useAlert();
   const [potentialGoal, setPotentialGoal] = useState(goal);
@@ -33,6 +37,19 @@ export default function Admin({
     } else {
       alert.error("There was a problem updating this campaign.");
     }
+  };
+
+  const resetToDefaults = () => {
+    setGoal(5000.0);
+    setPotentialGoal(5000.0);
+    setMinimumDonation(5.0);
+    setPotentialMinimum(5.0);
+    setTotalDonors(0);
+    setEndDate(addMonths(new Date(), 1));
+    setPotentialEndDate(addMonths(new Date(), 1));
+    setAmountToGoal(5000.0);
+    setDonationsTotal(0);
+    alert.success("Campaign updated.");
   };
 
   return (
@@ -92,7 +109,27 @@ export default function Admin({
         <button type="submit" onClick={() => handleSubmit()}>
           Submit
         </button>
+
+        <button
+          className="danger"
+          title="Reset campaign"
+          onClick={() => resetToDefaults()}
+        >
+          Reset Campaign
+        </button>
       </div>
     </div>
   );
 }
+
+Admin.propTypes = {
+  goal: PropTypes.number,
+  setGoal: PropTypes.func,
+  endDate: PropTypes.any,
+  setEndDate: PropTypes.func,
+  minimumDonation: PropTypes.number,
+  setMinimumDonation: PropTypes.func,
+  setTotalDonors: PropTypes.func,
+  setDonationsTotal: PropTypes.func,
+  setAmountToGoal: PropTypes.func,
+};

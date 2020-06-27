@@ -1,0 +1,268 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App snapshot renders 1`] = `
+<div
+  className="switch-wrapper"
+>
+  <div
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <div
+      className="card-container"
+    >
+      <div
+        className="card-top"
+      >
+        <div
+          className="progress-text-arrow"
+        >
+          <p
+            className="progress-text"
+          >
+            <strong>
+              <sup>
+                $
+              </sup>
+              <span>
+                5,000
+              </span>
+            </strong>
+             still needed to fund the project.
+          </p>
+        </div>
+      </div>
+      <div
+        className="card-main"
+      >
+        <div
+          aria-valuemax="100"
+          aria-valuemin="0"
+          aria-valuenow={0}
+          className="progress-bar"
+          role="progressbar"
+        >
+          <div
+            className="progress"
+            style={
+              Object {
+                "width": "0%",
+              }
+            }
+          />
+          <span
+            className="aria-text"
+          >
+            0
+            %
+          </span>
+        </div>
+        <div>
+          <h1
+            style={
+              Object {
+                "margin": "0",
+              }
+            }
+          >
+            Only
+             
+            zero 
+            day
+            
+             left to fund this project.
+          </h1>
+          <p
+            className="donation-card-text"
+          >
+            Please consider supporting this project.
+          </p>
+        </div>
+        <div
+          className="form"
+        >
+          <label>
+            <span
+              className="aria-text"
+            >
+              Donation Form:
+            </span>
+            <input
+              disabled={false}
+              inputMode="numeric"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseUp={[Function]}
+              placeholder="$"
+              type="text"
+              value=""
+            />
+          </label>
+          <button
+            disabled={false}
+            onClick={[Function]}
+            type="submit"
+          >
+            Give Now
+          </button>
+        </div>
+        <div
+          className="link-to-admin"
+        >
+          <a
+            href="/super-secret-admin-page"
+            onClick={[Function]}
+          >
+            <div
+              className="link-to-admin-cnt"
+            >
+              <svg
+                height="24"
+                viewBox="0 0 492.004 492.004"
+                width="24"
+              >
+                <path
+                  d="M484.14 226.886L306.46 49.202c-5.072-5.072-11.832-7.856-19.04-7.856-7.216 0-13.972 2.788-19.044 7.856l-16.132 16.136c-5.068 5.064-7.86 11.828-7.86 19.04 0 7.208 2.792 14.2 7.86 19.264L355.9 207.526H26.58C11.732 207.526 0 219.15 0 234.002v22.812c0 14.852 11.732 27.648 26.58 27.648h330.496L252.248 388.926c-5.068 5.072-7.86 11.652-7.86 18.864 0 7.204 2.792 13.88 7.86 18.948l16.132 16.084c5.072 5.072 11.828 7.836 19.044 7.836 7.208 0 13.968-2.8 19.04-7.872l177.68-177.68c5.084-5.088 7.88-11.88 7.86-19.1.016-7.244-2.776-14.04-7.864-19.12z"
+                />
+              </svg>
+              <span>
+                Super Secret Admin Page
+              </span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DonationCard snapshot renders 1`] = `
+<div
+  className="card-container"
+>
+  <div
+    className="card-top"
+  >
+    <div
+      className="progress-text-arrow"
+    >
+      <p
+        className="progress-text"
+      >
+        <strong>
+          <sup>
+            $
+          </sup>
+          <span>
+            
+          </span>
+        </strong>
+         still needed to fund the project.
+      </p>
+    </div>
+  </div>
+  <div
+    className="card-main"
+  >
+    <div
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow={NaN}
+      className="progress-bar"
+      role="progressbar"
+    >
+      <div
+        className="progress"
+        style={
+          Object {
+            "width": "NaN%",
+          }
+        }
+      />
+      <span
+        className="aria-text"
+      >
+        NaN
+        %
+      </span>
+    </div>
+    <div>
+      <h1
+        style={
+          Object {
+            "margin": "0",
+          }
+        }
+      >
+        The campaign is over.
+      </h1>
+      <p
+        className="donation-card-text"
+      >
+        Thank you to all who donated!
+      </p>
+    </div>
+    <div
+      className="form"
+    >
+      <label>
+        <span
+          className="aria-text"
+        >
+          Donation Form:
+        </span>
+        <input
+          disabled={false}
+          inputMode="numeric"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onMouseUp={[Function]}
+          placeholder="$"
+          type="text"
+          value=""
+        />
+      </label>
+      <button
+        disabled={false}
+        onClick={[Function]}
+        type="submit"
+      >
+        Give Now
+      </button>
+    </div>
+    <div
+      className="link-to-admin"
+    >
+      <a
+        href="/super-secret-admin-page"
+        onClick={[Function]}
+      >
+        <div
+          className="link-to-admin-cnt"
+        >
+          <svg
+            height="24"
+            viewBox="0 0 492.004 492.004"
+            width="24"
+          >
+            <path
+              d="M484.14 226.886L306.46 49.202c-5.072-5.072-11.832-7.856-19.04-7.856-7.216 0-13.972 2.788-19.044 7.856l-16.132 16.136c-5.068 5.064-7.86 11.828-7.86 19.04 0 7.208 2.792 14.2 7.86 19.264L355.9 207.526H26.58C11.732 207.526 0 219.15 0 234.002v22.812c0 14.852 11.732 27.648 26.58 27.648h330.496L252.248 388.926c-5.068 5.072-7.86 11.652-7.86 18.864 0 7.204 2.792 13.88 7.86 18.948l16.132 16.084c5.072 5.072 11.828 7.836 19.044 7.836 7.208 0 13.968-2.8 19.04-7.872l177.68-177.68c5.084-5.088 7.88-11.88 7.86-19.1.016-7.244-2.776-14.04-7.864-19.12z"
+            />
+          </svg>
+          <span>
+            Super Secret Admin Page
+          </span>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+`;

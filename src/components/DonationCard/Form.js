@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import NumberFormat from "react-number-format";
 import { useAlert } from "react-alert";
 
@@ -57,3 +58,11 @@ export default function Form({
     </div>
   );
 }
+
+Form.propTypes = {
+  handleDonation: PropTypes.func,
+  setTotalDonors: PropTypes.func,
+  totalDonors: PropTypes.number,
+  minimumDonation: PropTypes.number,
+  daysRemaining: PropTypes.number,
+};

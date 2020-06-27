@@ -1,5 +1,6 @@
 import React from "react";
 import NumberFormat from "react-number-format";
+import PropTypes from "prop-types";
 
 export default function ProgressText({ goal, amountToGoal, goalReached }) {
   return (
@@ -21,3 +22,9 @@ export default function ProgressText({ goal, amountToGoal, goalReached }) {
     </div>
   );
 }
+
+ProgressText.propTypes = {
+  goal: PropTypes.number,
+  goalReached: PropTypes.bool,
+  amountToGoal: PropTypes.number,
+};

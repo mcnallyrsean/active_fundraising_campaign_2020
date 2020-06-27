@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import ProgressText from "./ProgressText";
 import ProgressBar from "./ProgressBar";
@@ -58,3 +59,16 @@ export default function DonationCard({
     </div>
   );
 }
+
+DonationCard.propTypes = {
+  goal: PropTypes.number,
+  endDate: PropTypes.any,
+  goalReached: PropTypes.bool,
+  donationsTotal: PropTypes.number,
+  amountToGoal: PropTypes.number,
+  totalDonors: PropTypes.number,
+  setDonationsTotal: PropTypes.func,
+  setTotalDonors: PropTypes.func,
+  minimumDonation: PropTypes.number,
+  daysRemaining: PropTypes.number,
+};
