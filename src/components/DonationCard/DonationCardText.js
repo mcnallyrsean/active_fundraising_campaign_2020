@@ -2,6 +2,28 @@ import React from "react";
 import PropTypes from "prop-types";
 import converter from "number-to-words";
 
+const Header = ({ daysRemaining, goalReached }) => {
+  if (daysRemaining >= 1) {
+    return (
+      <h1 style={{ margin: "0" }}>
+        {goalReached ? "Goal Reached! You still have" : "Only"}
+        {daysRemaining < 21
+          ? ` ${converter.toWords(daysRemaining)} `
+          : ` ${daysRemaining} `}
+        day
+        {daysRemaining > 1 ? "s" : ""} left to fund this project.
+      </h1>
+    );
+  } else {
+    return (
+      <h1 style={{ margin: "0" }}>
+        {goalReached ? "Goal Reached! " : "We're counting on you! "}
+        Please contribute on this final day of the fundraising drive.
+      </h1>
+    );
+  }
+};
+
 export default function DonationCardText({
   totalDonors,
   goalReached,
@@ -10,26 +32,10 @@ export default function DonationCardText({
   if (daysRemaining >= 0) {
     return (
       <div>
-        {goalReached && (
-          <h1>
-            Goal reached! You still have{" "}
-            {daysRemaining < 21
-              ? `${converter.toWords(daysRemaining)} `
-              : `${daysRemaining} `}
-            day
-            {daysRemaining > 1 ? "s" : ""} left to fund this project.
-          </h1>
-        )}
-        {!goalReached && (
-          <h1 style={{ margin: "0" }}>
-            Only{" "}
-            {daysRemaining < 21
-              ? `${converter.toWords(daysRemaining)} `
-              : `${daysRemaining} `}
-            day
-            {daysRemaining > 1 ? "s" : ""} left to fund this project.
-          </h1>
-        )}
+        <Header
+          goalReached={goalReached}
+          daysRemaining={daysRemaining}
+        ></Header>
         {totalDonors > 0 ? (
           <p className="donation-card-text">
             Join the <strong>{totalDonors}</strong> total donor
