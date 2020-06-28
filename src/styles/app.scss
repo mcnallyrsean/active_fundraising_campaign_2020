@@ -57,7 +57,17 @@ button {
   position: absolute;
 }
 
-#__react-alert__ span {
-  font-family: "Poppins";
-  font-weight: 700;
+#__react-alert__ {
+  div:nth-of-type(1) {
+    div:nth-of-type(1) {
+      div {
+        background-color: $slate-120 !important;
+        border-radius: $border-radius !important;
+      }
+    }
+  }
+  span {
+    font-family: "Poppins";
+    font-weight: 700;
+  }
 }
