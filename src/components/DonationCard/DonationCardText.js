@@ -18,7 +18,7 @@ const Header = ({ daysRemaining, goalReached }) => {
     return (
       <h1 style={{ margin: "0" }}>
         {goalReached ? "Goal Reached! " : "We're counting on you! "}
-        Please contribute on this final day of the fundraising drive.
+        This is the final day of the fundraising drive.
       </h1>
     );
   }
