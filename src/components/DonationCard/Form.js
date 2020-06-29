@@ -19,7 +19,8 @@ export default function Form({
     setInputAmount(value.floatValue);
   };
 
-  const handleSubmit = (value) => {
+  const handleSubmit = (e, value) => {
+    e.preventDefault();
     if (value >= minimumDonation) {
       handleDonation(value);
       setTotalDonors(totalDonors + 1);
@@ -32,17 +33,16 @@ export default function Form({
   };
 
   return (
-    <div className="form">
+    <form className="form">
       <label>
         <span className="aria-text">Donation Form:</span>
         <NumberFormat
           value={formattedAmount}
-          displayType={"text"}
           thousandSeparator={true}
           decimalScale={2}
           prefix={"$"}
           placeholder={"$"}
-          displayType="input"
+          displayType={"input"}
           allowNegative={false}
           onValueChange={(value) => handleChange(value)}
           disabled={daysRemaining < 0 ? true : false}
@@ -52,11 +52,11 @@ export default function Form({
       <button
         disabled={daysRemaining < 0 ? true : false}
         type="submit"
-        onClick={() => handleSubmit(inputAmount)}
+        onClick={(e) => handleSubmit(e, inputAmount)}
       >
         Give Now
       </button>
-    </div>
+    </form>
   );
 }
 

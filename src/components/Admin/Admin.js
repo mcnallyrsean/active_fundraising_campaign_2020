@@ -28,7 +28,8 @@ export default function Admin({
     val ? setFormatted(val) : setFormatted(0);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     if (
       potentialGoal &&
       potentialGoal >= 100 &&
@@ -45,7 +46,8 @@ export default function Admin({
     }
   };
 
-  const resetToDefaults = () => {
+  const resetToDefaults = (e) => {
+    e.preventDefault();
     setGoal(5000.0);
     setPotentialGoal(5000.0);
     setMinimumDonation(5.0);
@@ -74,19 +76,18 @@ export default function Admin({
         SUPER SECRET ADMIN PAGE THAT WOULD NORMALLY BE HIDDEN BY AUTH AND/OR
         PERMISSIONS
       </h1>
-      <div className="admin-cnt">
+      <form className="admin-cnt">
         <fieldset className="fieldset">
           <label htmlFor="goal">
             Campaign Goal (Must be greater than $100)
           </label>
           <NumberFormat
             value={potentialGoal}
-            displayType={"text"}
             thousandSeparator={true}
             decimalScale={2}
             prefix={"$"}
             placeholder={"$"}
-            displayType="input"
+            displayType={"input"}
             allowNegative={false}
             onValueChange={(value) =>
               handleMoneyChange(value.floatValue, setPotentialGoal)
@@ -99,12 +100,11 @@ export default function Admin({
           </label>
           <NumberFormat
             value={potentialMinimum}
-            displayType={"text"}
             thousandSeparator={true}
             decimalScale={2}
             prefix={"$"}
             placeholder={"$"}
-            displayType="input"
+            displayType={"input"}
             allowNegative={false}
             onValueChange={(value) =>
               handleMoneyChange(value.floatValue, setPotentialMinimum)
@@ -118,18 +118,18 @@ export default function Admin({
             onChange={(val) => setPotentialEndDate(new Date(val))}
           />
         </fieldset>
-        <button type="submit" onClick={() => handleSubmit()}>
+        <button type="submit" onClick={(e) => handleSubmit(e)}>
           Submit
         </button>
 
         <button
           className="danger"
           title="Reset campaign"
-          onClick={() => resetToDefaults()}
+          onClick={(e) => resetToDefaults(e)}
         >
           Reset Campaign
         </button>
-      </div>
+      </form>
     </div>
   );
 }
