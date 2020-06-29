@@ -1,6 +1,6 @@
 .admin {
   width: 50vw;
-  button {
+  button:not(.react-datepicker__navigation) {
     border-radius: $border-radius;
     flex: 1;
     padding: 10px 0;
