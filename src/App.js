@@ -95,7 +95,18 @@ export default function App() {
             />
           </Route>
           <Route path="*">
-            <DonationCard goal={goal} endDate={endDate} />
+            <DonationCard
+              goal={goal}
+              endDate={endDate}
+              goalReached={goalReached}
+              donationsTotal={donationsTotal}
+              amountToGoal={amountToGoal}
+              totalDonors={totalDonors}
+              setDonationsTotal={setDonationsTotal}
+              setTotalDonors={setTotalDonors}
+              minimumDonation={minimumDonation}
+              daysRemaining={daysRemaining}
+            />
           </Route>
         </AnimatedSwitch>
       </Router>
